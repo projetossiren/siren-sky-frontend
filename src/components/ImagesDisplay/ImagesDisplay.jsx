@@ -5,17 +5,6 @@ export function ImagesDisplay({ imageInfo, setImageInfo }) {
 	return (
 		<div className='imagesdisplay'>
 			<table>
-				{/* <colgroup>
-					<col style={{ width: "11%" }} />
-					<col style={{ width: "12.5%" }} />
-					<col style={{ width: "12.5%" }} />
-					<col style={{ width: "12.5%" }} />
-					<col style={{ width: "12.5%" }} />
-					<col style={{ width: "12.5%" }} />
-					<col style={{ width: "12.5%" }} />
-					<col style={{ width: "12.5%" }} />
-					<col style={{ width: "12.5%" }} />
-				</colgroup> */}
 				<thead>
 					<tr>
 						<th>Nome</th>

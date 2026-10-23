@@ -1,6 +1,7 @@
 @import "./variables.css";
 
 * {
+	box-sizing: border-box;
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
@@ -8,21 +9,24 @@
 
 html {
 	font-size: 100%;
+	min-height: 100%;
 }
 
-#root,
-body,
-html {
+body {
 	width: 100%;
-	height: 100%;
+	min-height: 100vh;
 }
 
 #root {
 	color: var(--secondary-color);
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100vw;
+
+	width: 100%;
+	min-height: 100vh;
+	padding-bottom: 2rem;
 }
 
 body:has(.pop-up) {
@@ -33,6 +37,7 @@ button {
 	cursor: pointer;
 	padding: 0.7rem 1.5rem;
 	font-size: 1.2rem;
+
 	outline: 3px solid white;
 	color: white;
 	border: none;
