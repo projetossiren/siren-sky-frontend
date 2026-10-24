@@ -8,13 +8,8 @@ export function ImagesDisplay({ imageInfo, setImageInfo }) {
 				<thead>
 					<tr>
 						<th>Nome</th>
-						<th>Latitude</th>
-						<th>Longitude</th>
-						<th>Tamanho</th>
-						<th>Largura</th>
-						<th>Altura</th>
 						<th>Situação</th>
-						<th>Imagem</th>
+						<th>Informações</th>
 					</tr>
 				</thead>
 				<tbody>

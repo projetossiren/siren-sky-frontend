@@ -1,14 +1,22 @@
+@import "../../variables.css";
+
 .imagesdisplay {
-	margin: 0 3rem;
+	margin: 3rem auto;
+	width: min(70vw, 1100px);
+	border: 3px solid var(--primary-color);
+	border-radius: 20px;
+	overflow: hidden;
 
 	table {
-		width: 100%;
-		table-layout: fixed;
 		border-collapse: collapse;
+		width: 100%;
 	}
 
 	th {
-		font-size: 1.6rem;
+		font-size: clamp(0.8rem, 2.5vw, 1.6rem);
+		font-weight: bold;
+		white-space: nowrap;
+		/* título nunca quebra */
 	}
 
 	th,
@@ -16,22 +24,48 @@
 		text-align: center;
 		padding: 1rem;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-		word-wrap: break-word;
+	}
+
+	td {
+		font-size: clamp(0.9rem, 2vw, 1.2rem);
+		overflow-wrap: anywhere;
+		/* só o conteúdo quebra */
 	}
 
 	td:last-child {
 		border: none;
 	}
 
-	th {
-		font-weight: bold;
-	}
-
 	tbody tr:hover {
 		background-color: rgba(255, 255, 255, 0.08);
 	}
+}
 
-	td {
-		font-size: 1.2rem;
+@media (max-width: 900px) {
+	.imagesdisplay {
+		width: calc(100% - 2rem);
+		margin: 1.5rem 1rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.imagesdisplay {
+		width: calc(100% - 1rem);
+		margin: 1rem 0.5rem;
+		border-width: 2px;
+		border-radius: 14px;
+
+		th,
+		td {
+			padding: 0.6rem 0.3rem;
+		}
+
+		th {
+			font-size: 0.8rem;
+		}
+
+		td {
+			font-size: 0.85rem;
+		}
 	}
 }
