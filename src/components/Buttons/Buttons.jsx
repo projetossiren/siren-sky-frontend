@@ -49,9 +49,9 @@ export function Buttons({ imageInfo, setImageInfo }) {
 		console.log("Requisação realizada...")
 		const formData = new FormData();
 
-		formData.append("teste", image); // O primeiro argumento é o campo enviado para a API
+		formData.append("image", image); // O primeiro argumento é o campo enviado para a API
 
-		const response = await fetch("http://127.0.0.1:5000/verificar_lixo", {
+		const response = await fetch("http://127.0.0.1:8000/verificar_imagem", {
 			method: "POST",
 			body: formData
 		});
