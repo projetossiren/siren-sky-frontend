@@ -1,6 +1,7 @@
 import React from 'react'
 import './Buttons.css'
 import exifr from 'exifr'
+import axios from 'axios'
 
 export function Buttons({ imageInfo, setImageInfo }) {
 	const inputRef = React.useRef();
@@ -46,28 +47,30 @@ export function Buttons({ imageInfo, setImageInfo }) {
 	}
 
 	async function sendImage(image, index) {
-		console.log("Requisação realizada...")
-		const formData = new FormData();
+		try {
+			const formData = new FormData()
 
-		formData.append("image", image); // O primeiro argumento é o campo enviado para a API
+			formData.append("image", image)
 
-		const response = await fetch("http://127.0.0.1:8000/verificar_imagem", {
-			method: "POST",
-			body: formData
-		});
+			const response = await axios.post("http://127.0.0.1:8000/verificar_imagem", formData)
 
-		const data = await response.text();
+			const data = response.data.results
 
-		setImageInfo((prev) => {
-			return prev.map((item, j) =>
-				j === index
-					? {
-						...item,
-						state: data === "1" ? "Tem lixo" : "Sem lixo"
-					} :
-					item
-			)
-		})
+			setImageInfo((prev) => {
+				return prev.map((item, j) =>
+					j === index
+						? {
+							...item,
+							state: data.length >= 1 ? "Tem lixo" : "Sem lixo"
+						} :
+						item
+				)
+			})
+
+		}
+		catch (error) {
+			console.error("Erro na verificação da imagem!", error)
+		}
 	}
 
 	function handleDrop(event) {

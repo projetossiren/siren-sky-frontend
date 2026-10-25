@@ -1,10 +1,7 @@
 @import "../../variables.css";
 
 .siren-header {
-	position: sticky;
-	top: 1rem;
 	z-index: 1000;
-
 	width: 95%;
 	height: 100px;
 	margin: 1.5rem auto 0;
