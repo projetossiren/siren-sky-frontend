@@ -41,6 +41,14 @@
 		justify-content: center;
 		gap: clamp(1rem, 3vw, 5rem);
 
+		.item {
+			transition: all 0.3s ease-in-out;
+		}
+
+		.item:hover {
+			transform: scale(1.1);
+		}
+
 		a {
 			color: white;
 			font-size: 1.6rem;

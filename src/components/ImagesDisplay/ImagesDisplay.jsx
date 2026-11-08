@@ -1,7 +1,7 @@
 import { ImageDisplay } from '../ImageDisplay/ImageDisplay'
 import './ImagesDisplay.css'
 
-export function ImagesDisplay({ imageInfo, setImageInfo }) {
+export function ImagesDisplay({ imageInfo, setImageInfo, setqImages, setProcessedImages, setNoGPSImages, setTrashFound}) {
 	return (
 		<div className='imagesdisplay'>
 			<table>
@@ -19,6 +19,10 @@ export function ImagesDisplay({ imageInfo, setImageInfo }) {
 								<ImageDisplay
 									imageInfo={imageInfo}
 									setImageInfo={setImageInfo}
+									setqImages={setqImages}
+									setProcessedImages={setProcessedImages}
+									setNoGPSImages={setNoGPSImages}
+									setTrashFound={setTrashFound}
 									index={index}
 									key={i.id}
 								/>

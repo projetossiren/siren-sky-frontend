@@ -2,9 +2,20 @@ import React from 'react'
 import { createPortal } from "react-dom"
 import './ImageDisplay.css'
 
-export function ImageDisplay({ imageInfo, setImageInfo, index }) {
+export function ImageDisplay({ imageInfo, setImageInfo, index, setqImages, setProcessedImages, setNoGPSImages, setTrashFound }) {
 	const [showInfo, setShowInfo] = React.useState(false);
 	function removeImage() {
+		setqImages(qImages => qImages - 1);
+		if (imageInfo[index].state.length > 1) {
+			setProcessedImages(processedImages => processedImages - 1);
+			if (imageInfo[index].state === "Tem lixo") {
+				setTrashFound(trashFound => trashFound - 1);
+			}
+		}
+		if (imageInfo[index].latitude === "-" || imageInfo[index].longitude === "-") {
+			setNoGPSImages(noGPSImages => noGPSImages - 1);
+		}
+
 		setImageInfo(imageInfo.filter((_, i) => i !== index))
 	}
 	return (

@@ -3,17 +3,26 @@ import './Buttons.css'
 import exifr from 'exifr'
 import axios from 'axios'
 
-export function Buttons({ imageInfo, setImageInfo }) {
+export function Buttons({ imageInfo, setImageInfo, setqImages, setProcessedImages, setNoGPSImages, setTrashFound }) {
 	const inputRef = React.useRef();
 
 	async function handleImages(e) {
 		const files = Array.from(e.target.files);
+
 		if (!files.length) return;
 
-		files.forEach((file) => {
-			const img = new Image();
+		for (const file of files) {
+			if (!file.type.startsWith("image/")) {
+				continue;
+			}
 
-			img.onload = async () => {
+			const img = new Image();
+			const objectURL = URL.createObjectURL(file);
+
+			try {
+				img.src = objectURL;
+				await img.decode();
+
 				const gps = await exifr.gps(file);
 
 				const latitude = gps && Number.isFinite(gps.latitude)
@@ -24,26 +33,35 @@ export function Buttons({ imageInfo, setImageInfo }) {
 					? gps.longitude
 					: "-";
 
-				setImageInfo((prev) => [
+				if (latitude === "-" || longitude === "-") {
+					setNoGPSImages(prev => prev + 1);
+				}
+
+				setImageInfo(prev => [
 					...prev,
 					{
 						id: crypto.randomUUID(),
 						img: file,
 						name: file.name,
 						size: file.size,
-						width: img.width,
-						height: img.height,
-						latitude: latitude,
-						longitude: longitude,
+						width: img.naturalWidth,
+						height: img.naturalHeight,
+						latitude,
+						longitude,
 						state: "-"
 					}
 				]);
 
-				URL.revokeObjectURL(img.src);
-			};
+				setqImages(prev => prev + 1);
 
-			img.src = URL.createObjectURL(file);
-		});
+			} catch (error) {
+				console.error(`Erro ao carregar ${file.name}:`, error);
+			} finally {
+				URL.revokeObjectURL(objectURL);
+			}
+		}
+
+		e.target.value = "";
 	}
 
 	async function sendImage(image, index) {
@@ -56,6 +74,8 @@ export function Buttons({ imageInfo, setImageInfo }) {
 
 			const data = response.data.results
 
+			const hasTrash = data.length >= 1;
+
 			setImageInfo((prev) => {
 				return prev.map((item, j) =>
 					j === index
@@ -66,6 +86,12 @@ export function Buttons({ imageInfo, setImageInfo }) {
 						item
 				)
 			})
+
+			setProcessedImages(prev => prev + 1);
+
+			if (hasTrash) {
+				setTrashFound(prev => prev + 1);
+			}
 
 		}
 		catch (error) {

@@ -3,12 +3,18 @@
 .showInfoButton {
 	background-color: transparent;
 	padding: 0;
-	border-radius: 0;
+	outline: none;
 
 	svg {
 		width: clamp(28px, 5vw, 48px);
 		fill: var(--primary-color);
 	}
+}
+
+.showInfoButton:hover,
+.closeIcon:hover {
+	outline: none;
+	background-color: transparent;
 }
 
 .pop-up {

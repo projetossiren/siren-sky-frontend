@@ -43,4 +43,12 @@ button {
 	border: none;
 	background-color: var(--secondary-color);
 	border-radius: 30px;
+
+	transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+	outline: 3px solid var(--secondary-color);
+	color: var(--secondary-color);
+	background-color: white;
 }
