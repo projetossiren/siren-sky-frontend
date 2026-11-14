@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MapPage } from "./pages/MapPage/MapPage"
 import { AboutPage } from "./pages/AboutPage/AboutPage"
 import { LoginPage } from "./pages/LoginPage/LoginPage"
+import { RegisterPage } from "./pages/RegisterPage/RegisterPage"
 import './App.css'
 
 
@@ -22,6 +23,7 @@ function App() {
       {/* <Route path="/history" element={<p>Histórico.</p>} /> */}
       <Route path="/about" element={<AboutPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
     </Routes>
   )
 }

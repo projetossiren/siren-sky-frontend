@@ -1,5 +1,6 @@
 import "./LoginPage.css";
 import { BackButton } from "../../components/BackButton/BackButton.jsx";
+import { Link } from "react-router";
 
 export function LoginPage() {
 	return (
@@ -19,7 +20,7 @@ export function LoginPage() {
 					<button type="submit">Login</button>
 				</form>
 			</div>
-			<p className="note">Em caso do Email não cadastrado, será feito um registro automático.</p>
+			<p className="note">Não possui uma conta? <Link to="/register">Cadastre-se</Link>.</p>
 		</>
 	);
 }
