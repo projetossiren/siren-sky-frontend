@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router"
 import { Homepage } from "./pages/Homepage/Homepage"
 import { useState } from "react";
 import { MapPage } from "./pages/MapPage/MapPage"
+import { AboutPage } from "./pages/AboutPage/AboutPage"
+import { LoginPage } from "./pages/LoginPage/LoginPage"
 import './App.css'
 
 
@@ -17,8 +19,9 @@ function App() {
       <Route path="/" element={<Homepage imageInfo={imageInfo} setImageInfo={setImageInfo} qImages={qImages} processedImages={processedImages} noGPSImages={noGPSImages} trashFound={trashFound} setqImages={setqImages} setProcessedImages={setProcessedImages} setNoGPSImages={setNoGPSImages} setTrashFound={setTrashFound} />} />
       <Route path="/sirensky" element={<Homepage imageInfo={imageInfo} setImageInfo={setImageInfo} qImages={qImages} processedImages={processedImages} noGPSImages={noGPSImages} trashFound={trashFound} setqImages={setqImages} setProcessedImages={setProcessedImages} setNoGPSImages={setNoGPSImages} setTrashFound={setTrashFound} />} />
       <Route path="/alert" element={<MapPage imageInfo={imageInfo} />} />
-      <Route path="/history" element={<p>Histórico.</p>} />
-      <Route path="/about" element={<p>Sobre.</p>} />
+      {/* <Route path="/history" element={<p>Histórico.</p>} /> */}
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   )
 }

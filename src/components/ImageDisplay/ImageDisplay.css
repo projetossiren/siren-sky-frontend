@@ -14,7 +14,12 @@
 .showInfoButton:hover,
 .closeIcon:hover {
 	outline: none;
-	background-color: transparent;
+	background-color: var(--primary-color);
+	border-radius: 7px;
+
+	svg {
+		fill: white;
+	}
 }
 
 .pop-up {
