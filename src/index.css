@@ -23,11 +23,13 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-
 	width: 100%;
 	min-height: 100vh;
 	padding-bottom: 2rem;
+}
+
+#root:has(.login-form), #root:has(.register-form) {
+	justify-content: center;
 }
 
 body:has(.pop-up) {
