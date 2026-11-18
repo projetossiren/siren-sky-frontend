@@ -14,6 +14,7 @@ function App() {
   const [processedImages, setProcessedImages] = useState(0);
   const [noGPSImages, setNoGPSImages] = useState(0);
   const [trashFound, setTrashFound] = useState(0);
+  const [emailLoggedIn, setEmailLoggedIn] = useState("");
 
   return (
     <Routes>
@@ -21,7 +22,7 @@ function App() {
       <Route path="/sirensky" element={<Homepage imageInfo={imageInfo} setImageInfo={setImageInfo} qImages={qImages} processedImages={processedImages} noGPSImages={noGPSImages} trashFound={trashFound} setqImages={setqImages} setProcessedImages={setProcessedImages} setNoGPSImages={setNoGPSImages} setTrashFound={setTrashFound} />} />
       <Route path="/alert" element={<MapPage imageInfo={imageInfo} />} />
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage emailLoggedIn={emailLoggedIn} setEmailLoggedIn={setEmailLoggedIn} />} />
       <Route path="/register" element={<RegisterPage />} />
     </Routes>
   )

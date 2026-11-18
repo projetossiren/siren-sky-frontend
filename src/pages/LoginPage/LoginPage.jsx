@@ -5,11 +5,12 @@ import { Link, useNavigate } from "react-router";
 import axios from "axios";
 import { useState } from "react";
 
-export function LoginPage() {
+export function LoginPage({emailLoggedIn, setEmailLoggedIn}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    
 
     const navigate = useNavigate();
 
@@ -26,6 +27,7 @@ export function LoginPage() {
             );
 
             console.log("Login bem-sucedido:", response.data);
+            setEmailLoggedIn(response.data.email);
 
             navigate("/");
 
@@ -45,39 +47,41 @@ export function LoginPage() {
             <BackButton />
 
             <div className="login-form">
+            {emailLoggedIn === "" ? <>
                 <h2>Login</h2>
+                    <form onSubmit={handleLogin}>
+                        <div className="form-group">
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
 
-                <form onSubmit={handleLogin}>
-                    <div className="form-group">
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="password">Senha:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-
-                    {error && <p className="error-message">{error}</p>}
-
-                    <button type="submit" disabled={loading}>
-                        {loading ? "Entrando..." : "Login"}
-                    </button>
-                </form>
+                        <div className="form-group">
+                            <label htmlFor="password">Senha:</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        
+                        {error && <p className="error-message">{error}</p>}
+                        <button type="submit" disabled={loading}>
+                            {loading ? "Entrando..." : "Login"}
+                        </button>
+                    </form>
+                </>
+                :
+                <p>Logado na conta {emailLoggedIn}</p>}
             </div>
 
             <p className="note">
