@@ -77,7 +77,7 @@ export function LoginPage({ emailLoggedIn, setEmailLoggedIn }) {
 						{error && <p className="error-message">{error}</p>}
 						<button type="submit" disabled={loading}>
 							{loading ? "Entrando..." : "Login"}
-						</button>
+						</button>'
 					</form>
 				</>
 					:

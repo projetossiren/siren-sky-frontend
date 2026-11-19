@@ -1,32 +1,140 @@
 @import "../../variables.css";
 
 .about {
-	width: min(70%, 1100px);
+	width: min(90%, 1180px);
 	margin: 50px auto 0;
 	box-sizing: border-box;
+	color: #17233f;
 
-	border: 3px solid var(--primary-color);
-	border-radius: 10px;
-
-	padding: clamp(1.5rem, 4vw, 3.5rem);
-
-	h1 {
-		text-align: center;
-		margin-bottom: 20px;
-		font-size: clamp(2rem, 3vw, 3rem);
-		font-weight: 800;
+	.about-intro {
+		max-width: 860px;
+		padding: clamp(1.5rem, 5vw, 4rem) 0 clamp(2.5rem, 7vw, 5.5rem);
 	}
 
+	.about-kicker {
+		margin-bottom: 1rem;
+		color: #13806f;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+
+	h1,
+	h2,
+	h3,
 	p {
-		font-size: clamp(1rem, 1.4vw, 1.25rem);
+		margin: 0;
+	}
+
+	h1 {
+		max-width: 800px;
+		font-size: clamp(1.5rem, 4vw, 5.6rem);
+		line-height: 0.98;
+		letter-spacing: -0.04em;
+	}
+
+	.about-lead {
+		max-width: 650px;
+		margin-top: 1.75rem;
+		color: #52617a;
+		font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+		line-height: 1.65;
+	}
+
+	.about-biology {
+		display: grid;
+		grid-template-columns: minmax(230px, 0.8fr) minmax(300px, 1.2fr);
+		gap: clamp(2rem, 8vw, 8rem);
+		padding: clamp(2rem, 5vw, 4rem) 0;
+		border-top: 1px solid #c7d8d2;
+		border-bottom: 1px solid #c7d8d2;
+		background: linear-gradient(110deg, #eef8f3 0%, #f8fbf8 100%);
+
+		.about-section-heading {
+			margin-left: 1.5rem;
+		}
+	}
+
+	h2 {
+		font-size: clamp(1.8rem, 3.2vw, 3.1rem);
+		line-height: 1.05;
+		letter-spacing: -0.025em;
+	}
+
+	.about-biology>p,
+	.about-action>p {
+		align-self: center;
+		color: #52617a;
+		font-size: 1.08rem;
+		line-height: 1.75;
+	}
+
+	.about-topics {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1px;
+		margin: 3.5rem 0;
+		background: #c7d8d2;
+	}
+
+	.about-topic {
+		min-height: 250px;
+		padding: 2rem;
+		background: #fff;
+	}
+
+	.about-topic-number {
+		display: block;
+		margin-bottom: 3.5rem;
+		color: #13806f;
+		font-size: 0.82rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+	}
+
+	h3 {
+		margin-bottom: 0.8rem;
+		font-size: 1.25rem;
+	}
+
+	.about-topic p {
+		color: #66748a;
 		line-height: 1.6;
-		text-align: justify;
+	}
+
+	.about-action {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2rem, 8vw, 8rem);
+		padding: clamp(2rem, 4vw, 3.5rem);
+		border-radius: 0 0 10px 10px;
+		background: var(--secondary-color);
+		color: #fff;
+	}
+
+	.about-action .about-kicker {
+		color: #a9e3ce;
+	}
+
+	.about-action>p {
+		color: #e4ecff;
 	}
 }
 
 @media (max-width: 900px) {
 	.about {
 		width: 85%;
+
+		.about-biology,
+		.about-action {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.about-topics {
+			grid-template-columns: 1fr;
+		}
 	}
 }
 
@@ -34,15 +142,38 @@
 	.about {
 		width: 90%;
 		margin-top: 30px;
-		padding: 1.25rem;
+		padding: 0;
 
 		h1 {
-			font-size: 1.8rem;
+			font-size: 2.6rem;
 		}
 
-		p {
+		.about-intro {
+			padding-top: 1rem;
+		}
+
+		.about-biology {
+			padding: 2rem 1.25rem;
+		}
+
+		.about-topic {
+			min-height: auto;
+			padding: 1.5rem 1.25rem;
+		}
+
+		.about-topic-number {
+			margin-bottom: 2rem;
+		}
+
+		.about-action {
+			padding: 2rem 1.25rem;
+			border-radius: 0;
+		}
+
+		.about-lead,
+		.about-biology>p,
+		.about-action>p {
 			font-size: 1rem;
-			text-align: justify;
 		}
 	}
 }

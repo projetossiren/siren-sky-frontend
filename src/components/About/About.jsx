@@ -2,9 +2,74 @@ import "./About.css"
 
 export function About() {
 	return (
-		<div className="about">
-			<h1>About</h1>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, magni fuga impedit pariatur adipisci, tempora assumenda maiores temporibus molestiae ut itaque quos nemo suscipit veritatis a repudiandae nobis similique ullam quis quae. Tenetur ad blanditiis impedit necessitatibus asperiores voluptates enim inventore distinctio quaerat debitis iusto voluptate facilis fugit eum esse ut suscipit, nobis accusamus omnis atque! Perspiciatis ut numquam eos atque quasi. Iure odio magni earum amet nemo voluptas placeat! Iste deserunt doloremque nesciunt hic eaque, ad tenetur enim exercitationem est provident veniam asperiores quas ullam aperiam non. Quaerat amet error voluptatum, illum quae et laborum ex vero iure esse necessitatibus labore. Maiores dolor eos voluptatem tempora error pariatur officia. Cupiditate voluptatibus eius voluptatem earum odit nostrum, mollitia itaque accusamus architecto distinctio, et odio fugiat? Sequi explicabo et ipsam eveniet reiciendis esse autem vero, ex nobis at aspernatur ut ab in ea dolore voluptatibus iure doloribus. Ut exercitationem, beatae nemo voluptas vero, adipisci voluptate a laudantium delectus illum, error amet tempora! Voluptatum voluptate iste tenetur nobis hic vel, tempora quos, voluptatibus eaque dolorum enim sint ullam laboriosam commodi dignissimos rerum labore, consequatur numquam! Sed iure dicta officia fugiat hic corrupti rem quis provident neque ducimus. Nisi rerum doloribus reiciendis commodi!</p>
-		</div>
+		<main className="about">
+			<section className="about-intro">
+				<p className="about-kicker">Ciência para cuidar do território</p>
+				<h1>Poluição muda a vida antes de mudar a paisagem.</h1>
+				<p className="about-lead">
+					O SirenSky transforma imagens de áreas naturais em informação para que a
+					comunidade reconheça resíduos, acompanhe os impactos da poluição e aja
+					antes que um problema local se torne um desequilíbrio ecológico.
+				</p>
+			</section>
+
+			<section className="about-biology" aria-labelledby="biology-title">
+				<div className="about-section-heading">
+					<p className="about-kicker">Biologia em foco</p>
+					<h2 id="biology-title">Cada resíduo interrompe uma relação viva.</h2>
+				</div>
+				<p>
+					Um plástico no solo pode ser levado pela chuva até um rio. No ambiente
+					aquático, ele se fragmenta em microplásticos, pode ser ingerido por
+					organismos e entrar na cadeia alimentar. A poluição também altera a
+					qualidade da água, reduz o habitat disponível e pressiona espécies que já
+					dependem de condições muito específicas para sobreviver.
+				</p>
+			</section>
+
+			<div className="about-topics">
+				<article className="about-topic">
+					<span className="about-topic-number">01</span>
+					<h3>Solo e decomposição</h3>
+					<p>
+						Resíduos acumulados abafam o solo, contaminam seus nutrientes e
+						interferem na ação de fungos, bactérias e invertebrados que reciclam a
+						matéria orgânica.
+					</p>
+				</article>
+
+				<article className="about-topic">
+					<span className="about-topic-number">02</span>
+					<h3>Água e biodiversidade</h3>
+					<p>
+						Em rios, lagos e no oceano, o lixo pode causar sufocamento, ingestão e
+						ferimentos em animais, além de transportar substâncias tóxicas para
+						diferentes níveis da cadeia alimentar.
+					</p>
+				</article>
+
+				<article className="about-topic">
+					<span className="about-topic-number">03</span>
+					<h3>Saúde do ecossistema</h3>
+					<p>
+						A presença e a distribuição dos resíduos revelam hábitos de consumo,
+						falhas de manejo e áreas vulneráveis que precisam de recuperação e
+						monitoramento contínuo.
+					</p>
+				</article>
+			</div>
+
+			<section className="about-action" aria-labelledby="action-title">
+				<div>
+					<p className="about-kicker">Da observação à ação</p>
+					<h2 id="action-title">Dados locais ajudam a proteger vidas.</h2>
+				</div>
+				<p>
+					Ao enviar imagens, você contribui para identificar pontos de descarte,
+					priorizar a limpeza e criar um histórico das mudanças no ambiente. O
+					cuidado começa quando conseguimos enxergar o problema com clareza.
+				</p>
+			</section>
+		</main>
 	)
 }
